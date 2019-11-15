@@ -52,9 +52,10 @@ notefulRouter
         knexInstance
             .insert(newNote)
             .into('notes')
-            .return(newNote)
+            .returning('*')
             .then(results => {
-                res.status(201).json(results)
+                console.log(results, 'test')
+                res.status(201).json(results) 
             })
             .catch(next)
     })
