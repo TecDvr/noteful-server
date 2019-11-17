@@ -28,7 +28,7 @@ notefulRouter
         knexInstance
             .insert(newFolder)
             .into('folders')
-            .return(newFolder)
+            .returning('*')
             .then(results => {
                 res.status(201).json(results)
             })
